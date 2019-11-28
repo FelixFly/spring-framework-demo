@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationBeanNameGenerator;
 /**
  * classpath 是否有/的演示
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly
  * @date 2019/11/28
  */
 public class ClassPathSlashDemo {
