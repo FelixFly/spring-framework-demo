@@ -6,4 +6,7 @@
 
     <bean name="user user1" class="java.lang.Object"/>
 
+
+
+
 </beans>
