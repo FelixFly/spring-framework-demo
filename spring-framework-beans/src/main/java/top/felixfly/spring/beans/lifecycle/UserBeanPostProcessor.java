@@ -2,6 +2,7 @@ package top.felixfly.spring.beans.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 import top.felixfly.spring.beans.entity.User;
 
@@ -12,7 +13,7 @@ import top.felixfly.spring.beans.entity.User;
  * @date 2020/5/14
  */
 @Component
-public class UserBeanPostProcessor implements BeanPostProcessor {
+public class UserBeanPostProcessor implements BeanPostProcessor, Ordered {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -30,5 +31,10 @@ public class UserBeanPostProcessor implements BeanPostProcessor {
             User.addUserAge(bean);
         }
         return bean;
+    }
+
+    @Override
+    public int getOrder() {
+        return Ordered.LOWEST_PRECEDENCE;
     }
 }

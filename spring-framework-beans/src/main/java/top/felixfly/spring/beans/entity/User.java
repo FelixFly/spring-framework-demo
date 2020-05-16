@@ -1,8 +1,12 @@
 package top.felixfly.spring.beans.entity;
 
 import lombok.Data;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 /**
  * 用户信息
@@ -11,7 +15,7 @@ import org.springframework.beans.factory.InitializingBean;
  * @date 2020/5/14
  */
 @Data
-public class User implements InitializingBean, DisposableBean {
+public class User implements InitializingBean, DisposableBean, BeanNameAware, ApplicationContextAware {
 
     private Integer id;
 
@@ -63,5 +67,15 @@ public class User implements InitializingBean, DisposableBean {
     public void afterPropertiesSet() throws Exception {
         System.out.println("InitializingBean#afterPropertiesSet");
         addAge();
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("BeanNameAware#setBeanName");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("ApplicationContextAware#setApplicationContext");
     }
 }
