@@ -4,7 +4,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
 /**
- * TODO
+ * 循环应用配置
  *
  * @author FelixFly <chenglinxu@yeah.net>
  * @date 2019/12/2

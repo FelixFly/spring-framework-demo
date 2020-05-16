@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * TODO
+ * Aop切面配置
  *
  * @author FelixFly <chenglinxu@yeah.net>
  * @date 2019/11/28
