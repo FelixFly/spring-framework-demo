@@ -21,9 +21,10 @@ public class User implements InitializingBean, DisposableBean, BeanNameAware, Ap
 
     private String name;
 
-    private Integer age;
+    private Integer age = 0;
 
     public static User createUser() {
+        System.out.println("User#createUser");
         User user = new User();
         user.setId(1);
         user.setName("FelixFly");

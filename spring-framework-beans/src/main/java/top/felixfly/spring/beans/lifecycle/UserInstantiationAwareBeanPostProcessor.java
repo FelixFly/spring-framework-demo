@@ -21,6 +21,14 @@ import java.util.Optional;
 public class UserInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
     @Override
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        if(User.class.equals(beanClass)) {
+            System.out.println("InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation");
+        }
+        return null;
+    }
+
+    @Override
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName)
             throws BeansException {
         if (User.isUser(bean)) {

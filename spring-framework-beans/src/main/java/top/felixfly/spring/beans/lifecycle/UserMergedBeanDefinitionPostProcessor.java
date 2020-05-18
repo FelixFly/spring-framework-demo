@@ -1,5 +1,6 @@
 package top.felixfly.spring.beans.lifecycle;
 
+import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.support.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -24,5 +25,14 @@ public class UserMergedBeanDefinitionPostProcessor implements MergedBeanDefiniti
             propertyValues.add("age", "10");
             System.out.println("MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition");
         }
+    }
+
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if(User.isUser(bean)) {
+            System.out.println("MergedBeanDefinitionPostProcessor#postProcessBeforeInitialization");
+        }
+        return bean;
     }
 }

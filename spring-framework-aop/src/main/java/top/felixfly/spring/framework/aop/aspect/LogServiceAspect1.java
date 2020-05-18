@@ -1,9 +1,8 @@
 package top.felixfly.spring.framework.aop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -21,9 +20,14 @@ public class LogServiceAspect1 {
 
     }
 
+    @Before("pointcut()")
+    public void before(JoinPoint joinPoint){
+        System.out.println("。。。。LogServiceAspect1#Before。。。。。");
+    }
+
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("。。。。LogServiceAspect1。。。。。");
+        System.out.println("。。。。LogServiceAspect1#Around。。。。。");
         //return joinPoint.proceed();
         try {
             return joinPoint.proceed();
@@ -31,6 +35,16 @@ public class LogServiceAspect1 {
             System.out.println("接收异常LogServiceAspect1");
             throw ex;
         }
+    }
+
+    @After("pointcut()")
+    public void after(JoinPoint joinPoint){
+        System.out.println("。。。。LogServiceAspect1#After。。。。。");
+    }
+
+    @AfterReturning("pointcut()")
+    public void afterReturning(JoinPoint joinPoint){
+        System.out.println("。。。。LogServiceAspect1#AfterReturning。。。。。");
     }
 
 
