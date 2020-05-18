@@ -12,7 +12,6 @@
     <artifactId>spring-framework-context</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-framework-context-resource</module>
         <module>spring-framework-context-demo</module>
         <module>spring-framework-context-user</module>
     </modules>
@@ -20,12 +19,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <artifactId>spring-framework-context-resource</artifactId>
-                <groupId>top.felixfly.spring</groupId>
-                <version>${project.version}</version>
-            </dependency>
-
             <dependency>
                 <artifactId>spring-framework-context-user</artifactId>
                 <groupId>top.felixfly.spring</groupId>

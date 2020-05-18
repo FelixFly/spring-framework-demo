@@ -4,7 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import top.felixfly.spring.beans.entity.User;
-import top.felixfly.spring.beans.lifecycle.UseImportBeanDefinitionRegistrar;
+import top.felixfly.spring.beans.lifecycle.UseImportSelect;
 
 /**
  * Bean 生命周期
@@ -12,7 +12,7 @@ import top.felixfly.spring.beans.lifecycle.UseImportBeanDefinitionRegistrar;
  * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/5/14
  */
-@Import(UseImportBeanDefinitionRegistrar.class)
+@Import(UseImportSelect.class)
 @ComponentScan("top.felixfly.spring.beans.lifecycle")
 public class BeansLifeCycleDemo {
 

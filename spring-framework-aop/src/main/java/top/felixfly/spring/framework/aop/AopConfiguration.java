@@ -1,8 +1,7 @@
 package top.felixfly.spring.framework.aop;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.*;
 
 /**
  * Aop切面配置
@@ -14,4 +13,18 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @ComponentScan("top.felixfly.spring.framework.aop")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AopConfiguration {
+
+    @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    public TraceBeanFactoryPointcutAdvisor traceBeanFactoryPointcutAdvisor(){
+        TraceBeanFactoryPointcutAdvisor pointcutAdvisor = new TraceBeanFactoryPointcutAdvisor();
+        pointcutAdvisor.setAdvice(traceInterceptor());
+        return pointcutAdvisor;
+    }
+
+    @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    public TraceInterceptor traceInterceptor(){
+        return new TraceInterceptor();
+    }
 }

@@ -10,31 +10,16 @@ import org.springframework.stereotype.Component;
  * @date 2019/11/28
  */
 @Component
-public class LogService {
+public class LogService2 {
 
     @Autowired
-    private LogService2 logService2;
+    private LogService logService;
+
 
     public void test(String arg1, String arg2) {
         System.out.println(".....test....");
-        //throw new RuntimeException("测试");
-        logService2.test(arg1, arg2);
-        test2();
-        test3();
-        test4();
+        logService.test3();
+        logService.test4();
     }
-
-
-    private void test2() {
-
-    }
-
-    protected void test3() {
-
-    }
-
-    void test4() {
-    }
-
 
 }

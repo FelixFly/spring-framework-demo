@@ -1,7 +1,8 @@
 package top.felixfly.spring.beans.lifecycle;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.ImportSelector;
@@ -14,7 +15,7 @@ import top.felixfly.spring.beans.entity.User;
  * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/5/18
  */
-public class UseImportSelect implements ImportSelector, BeanNameAware, ApplicationContextAware {
+public class UseImportSelect implements ImportSelector, BeanFactoryAware, ApplicationContextAware {
 
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
@@ -23,12 +24,12 @@ public class UseImportSelect implements ImportSelector, BeanNameAware, Applicati
     }
 
     @Override
-    public void setBeanName(String name) {
-        System.out.println("ImportSelector.BeanNameAware#setBeanName");
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("ImportSelector.ApplicationContextAware#BeanNameAware");
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("ImportSelector.ApplicationContextAware#BeanNameAware");
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("ImportSelector.BeanFactoryAware#setBeanFactory");
     }
 }
