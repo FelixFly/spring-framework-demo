@@ -3,13 +3,15 @@ package top.felixfly.spring.framework.aop;
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.MethodMatcher;
 import org.springframework.aop.Pointcut;
+import org.springframework.aop.support.annotation.AnnotationClassFilter;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 
 /**
- * TODO
+ * 日志切面
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/5/18
  */
 public class TracePointcut implements Pointcut, Serializable {
@@ -24,7 +26,8 @@ public class TracePointcut implements Pointcut, Serializable {
 
     @Override
     public ClassFilter getClassFilter() {
-        return ClassFilter.TRUE;
+        // service 注解打点,true表示派生的注解
+        return new AnnotationClassFilter(Service.class, true);
     }
 
     @Override

@@ -4,9 +4,9 @@ import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor;
 
 /**
- * TODO
+ * 日志通知器
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/5/18
  */
 public class TraceBeanFactoryPointcutAdvisor extends AbstractBeanFactoryPointcutAdvisor {
@@ -14,6 +14,7 @@ public class TraceBeanFactoryPointcutAdvisor extends AbstractBeanFactoryPointcut
 
     @Override
     public Pointcut getPointcut() {
-        return TracePointcut.INSTANCE;
+        // 所有的方法
+        return Pointcut.TRUE;
     }
 }

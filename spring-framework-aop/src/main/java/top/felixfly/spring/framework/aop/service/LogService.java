@@ -1,7 +1,7 @@
 package top.felixfly.spring.framework.aop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * 日志服务
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author FelixFly <chenglinxu@yeah.net>
  * @date 2019/11/28
  */
-@Component
+@Service
 public class LogService {
 
     @Autowired

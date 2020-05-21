@@ -11,7 +11,7 @@ import org.springframework.context.annotation.*;
  */
 @Configuration
 @ComponentScan("top.felixfly.spring.framework.aop")
-@EnableAspectJAutoProxy(proxyTargetClass = true)
+@EnableAspectJAutoProxy
 public class AopConfiguration {
 
     @Bean
