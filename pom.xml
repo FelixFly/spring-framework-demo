@@ -9,6 +9,7 @@
         <module>spring-framework-beans</module>
         <module>spring-framework-resource</module>
         <module>spring-framework-transaction</module>
+        <module>spring-framework-converter</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
